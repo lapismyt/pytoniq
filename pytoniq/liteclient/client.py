@@ -1157,7 +1157,7 @@ class LiteClient:
         data = {'body': message}
 
         result = await self.liteserver_request('sendMessage', data)
-        return result['status']
+        return Cell.one_from_boc(message).hash
 
     @classmethod
     def from_config(cls, config: dict, ls_i: int = 0, trust_level: int = 2, timeout: int = 10):
