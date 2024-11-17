@@ -457,6 +457,7 @@ class LiteBalancer:
         result = await asyncio.gather(*_tasks, return_exceptions=True)
         success = False
         exc = None
+        return [r for r in result]
         for r in result:
             if isinstance(r, Exception):
                 exc = r
